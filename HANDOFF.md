@@ -1,6 +1,10 @@
 # 当前交接记录
 
-## 最新交接：2026-09-22，普通线自主泊车基线与 GitHub 首次发布准备
+## 最新交接：2026-09-22，普通线自主泊车基线与 GitHub 首次发布
+
+发布核验：公开仓库 https://github.com/Sisu-z/smart-car-parking 。代码基线提交 `8bc0d8c97cd20d25eeac6a37a0ae158d9b15e6e9`；本节的后续文档提交记录发布结果，不改变已测算法。main 为默认分支，API 返回 private=false，公开原文入口可读取，远端与本地基线提交匹配。
+
+从 GitHub 全新克隆（不借用原工作区 build/.venv，子模块从上游取固定提交），按 README 执行 uv sync --frozen 和默认复跑：macOS、Python 3.13.13，7 项 C、9 项 Python、7 个仿真场景均通过；报告 hardware_tested=false、stm32_status=NOT_REQUESTED。默认未构建 MCU 是明确范围，不是跳过后冒充通过。本机另一环境 Python 3.12.13 完整运行含 STM32 配置/链接也通过。缺少 --baseline 却要求 MCU 编译时以参数错误退出，未悄悄使用本机私有路径。Markdown 本地链接检查与 git diff --check 通过。
 
 ### Current State — 当前状态
 
@@ -12,7 +16,7 @@
 - 去除旧 AprilTag 主线建议，但保留离线实验/回归；新增感知/任务草案与现行 v0.1 明确隔离；修正旧通信文档“斜坡停机/standby”与 bench 实际 coast/超时锁存的冲突。
 - 新增公开 README 与发布忽略规则；外部资料/学习固件路径改成逻辑根目录，原件未移动或修改。厂商资料、外部 HAL、.venv/build/results、原采集数据与本地配置不上传。
 - PythonRobotics 使用固定提交子模块，另保留许可证文本；电脑端默认复跑不再依赖私有 HAL。STM32 编译须显式 --with-stm32 --baseline；板端控制逻辑和安全门控未改。
-- 初始化本地 main；准备公开仓库 Sisu-z/smart-car-parking。首次导入是实验基线归档，不代表控制/安全代码获得独立审查批准。
+- 初始化并发布 main 至公开仓库 Sisu-z/smart-car-parking。首次导入是实验基线归档，不代表控制/安全代码获得独立审查批准。
 
 ### Verified — 本轮实际验证
 
@@ -22,7 +26,7 @@
 
 ### Not Verified — 未验证
 
-没有实物连接、烧录、串口控制、X5 部署、相机采集、普通线识别、随机找位或真实出库测试。相机方案未定，底盘结构与电流/CPR/供电仍有 UNKNOWN。未来接口只是设计，未声称新协议已实现。首次提交后还需从干净克隆复跑并验证公开访问；以随后发布核验记录为准。
+没有实物连接、烧录、串口控制、X5 部署、相机采集、普通线识别、随机找位或真实出库测试。相机方案未定，底盘结构与电流/CPR/供电仍有 UNKNOWN。未来接口只是设计，未声称新协议已实现。已验证当前 Mac 上干净克隆复跑，不承诺未经测试的 Windows/Linux/板端环境全部可用。
 
 ### Known Problems / Next Recommended Action
 
