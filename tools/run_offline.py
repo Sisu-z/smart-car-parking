@@ -30,6 +30,7 @@ def main():
         ("C安全与数值测试",["ctest","--test-dir","build/host","--output-on-failure"]),
         ("Python视觉与集成测试",[sys.executable,"-m","unittest","discover","-s","tests","-p","test_*.py","-v"]),
         ("泊车与故障场景",[sys.executable,"-m","offline.run"]),
+        ("普通线与倒库出库实验",[sys.executable,"-m","offline.demo"]),
     ]
     if args.with_stm32:
         steps.extend([
@@ -38,7 +39,7 @@ def main():
         ])
     results=[]; failed=set()
     for index,(name,command) in enumerate(steps):
-        dependency={1:{0},2:{0,1},3:{0,1},4:{0,1},6:{5}}.get(index,set())
+        dependency={1:{0},2:{0,1},3:{0,1},4:{0,1},5:{0,1},7:{6}}.get(index,set())
         if dependency & failed:
             results.append(dict(step=name,passed=False,status="SKIPPED_DEPENDENCY"));failed.add(index);continue
         print("执行："+name,flush=True)
@@ -54,7 +55,7 @@ def main():
     report=dict(timestamp_utc=datetime.now(timezone.utc).isoformat(),hardware_tested=False,
                 stm32_requested=args.with_stm32,stm32_status="REQUESTED" if args.with_stm32 else "NOT_REQUESTED",steps=results)
     (out/"verification.json").write_text(json.dumps(report,ensure_ascii=False,indent=2))
-    print("结果：results/离线验证结果.html；完整日志：results/verification.json")
+    print("结果：results/阶段一软件实验.html、results/离线验证结果.html；完整日志：results/verification.json")
     return bool(failed)
 
 if __name__=="__main__":raise SystemExit(main())
