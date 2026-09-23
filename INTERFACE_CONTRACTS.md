@@ -1,5 +1,15 @@
 # 接口契约
 
+## 隔离离线实验接口（2026-09-23，DEC-017）
+
+不修改既有 C v0.1；以下不是实车 perception/parking 接口的正式冻结版本：
+
+- `offline.slot_lines.analyze(image, profile=None)`：输入可信本地 uint8 图像/可选固定相机地面标定；输出候选字典和检测画布。schema 为 slot-lines-experiment-v1；坐标域在输出注明，入口/边界仅假设；标定提供时附 m/rad。没有时间同步、跟踪或占用判断，恒 `valid_for_control=false` / `occupancy=UNKNOWN`。
+- 结果状态：NO_CANDIDATE / CANDIDATES_ONLY / TOO_MANY_LINES；非法图像/配置/标定抛异常，不编造空闲或可信位姿。具体字段、模型限制与使用说明见 `offline/README.md`。
+- `offline.parking.plan(..., terminal_direction=None)`：默认兼容旧实验；可选 -1/+1 筛选最后实际路径段，无解返回 []。只保证离散路径末段方向，不保证车位入口跨越、扫掠安全或任务成功。
+- `run_exit_scenario(...)`：从指定模拟停稳位姿重新规划，末段 +1，模拟完成状态 EXITED；不倒放旧路径，不执行实车指令。仿真显式输入真值，不得当未来感知输入。
+- CLI 与 demo 仅电脑端，不能下发任何 HAL/串口命令；不得绕过 M0～M3 实测门槛。
+
 版本：`0.1`，状态 `[DESIGN]`。其中已注明的部分已经由可复用模块实现。任何单位、方向、范围或字段顺序变化，都必须经过复审并记录为新决策。
 
 ## 0.1 兼容扩展：Bench 安全层（2026-09-22，DEC-012）

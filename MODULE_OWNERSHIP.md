@@ -30,4 +30,4 @@
 
 所有权是任务级临时写入边界，不是永久占有。领取任务时在任务描述/PR 写明模块、文件范围、基础提交、接口依赖和集成负责人。跨模块改动必须先协调；AGENTS/接口/单位/总方案由 Integrator 统一合并。两项任务不得在同一工作目录或同一分支同时编辑。
 
-`offline/vision.py` 的 AprilTag 检测是保留实验；未来普通线感知应有独立入口和测试。`offline/parking.py` 当前只提供模拟真值闭环，不是实车 parking 模块。`tools/` 不得因调试便利绕过固件安全门控。
+`offline/vision.py` 的 AprilTag 检测是保留实验；`offline/slot_lines.py` 是普通线框候选/固定相机投影，`slot_cli.py` 只读本地媒体，`dataset_audit.py` 只查场景/重复图泄漏。它们不判断真实空闲、不输出可执行目标。`offline/parking.py` 仍是模拟真值闭环（现含末段方向/出库实验），不是实车 parking 模块。`tools/` 不得因调试便利绕过固件安全门控。

@@ -1,0 +1,14 @@
+{
+  "schema": "ground-profile-v1",
+  "camera_model": "pinhole",
+  "calibration_id": "",
+  "camera_id": "",
+  "mount_id": "",
+  "image_size": [],
+  "camera_matrix": [],
+  "dist_coeffs": [],
+  "image_points_px": [],
+  "ground_points_m": [],
+  "meters_per_px": null,
+  "notes": "不可直接使用。全部填写实测值；固定相机、平面、+x前/+y左。米制/尺度须独立验证，绝非实车控制许可。"
+}

@@ -45,16 +45,7 @@ def collision(pose, obstacles, cfg, margin=.03):
             return True
     return False
 
-def plan(start, goal, obstacles, cfg):
-    if np.linalg.norm(np.array(goal[:2])-start[:2]) < 1e-6 and abs(wrap(goal[2]-start[2])) < 1e-6:
-        return [(np.array([start], dtype=float), 1)]
-    # 给跟踪纠偏留 15% 曲率余量，避免规划全程贴着执行器极限。
-    candidates = rs.calc_paths(*start, *goal, .85*math.tan(cfg.max_steer_rad)/cfg.wheelbase_m, .015)
-    valid = [p for p in candidates if not any(collision(pose, obstacles, cfg, .055)
-              for pose in zip(p.x,p.y,p.yaw))]
-    if not valid:
-        return []  # 只搜索 RS 候选，不声称完成任意障碍环境搜索。
-    path = min(valid, key=lambda p: p.L + .12 * sum(a*b<0 for a,b in zip(p.lengths,p.lengths[1:])))
+def _sections(path):
     sections = []
     first = 0
     for i in range(1, len(path.x)+1):
@@ -65,11 +56,37 @@ def plan(start, goal, obstacles, cfg):
             first = i
     return sections
 
-def run_scenario(name, start, goal, obstacles=(), fault=None, cfg=Config()):
-    sections = plan(start,goal,obstacles,cfg)
+
+def plan(start, goal, obstacles, cfg, terminal_direction=None):
+    """可选约束最后的实际路径段方向；不是车位入口跨越/整个任务保证。"""
+    if terminal_direction not in (None, -1, 1):
+        raise ValueError("末段方向只能为 -1（倒车）、+1（前进）或 None")
+    if collision(start, obstacles, cfg, .055) or collision(goal, obstacles, cfg, .055):
+        return []
+    if np.linalg.norm(np.array(goal[:2])-start[:2]) < 1e-6 and abs(wrap(goal[2]-start[2])) < 1e-6:
+        return [(np.array([start], dtype=float), 1)] if terminal_direction is None else []
+    # 给跟踪纠偏留 15% 曲率余量，避免规划全程贴着执行器极限。
+    candidates = rs.calc_paths(*start, *goal, .85*math.tan(cfg.max_steer_rad)/cfg.wheelbase_m, .015)
+    valid = []
+    for p in candidates:
+        sections = _sections(p)
+        if not sections or (terminal_direction is not None and sections[-1][1] != terminal_direction):
+            continue
+        if not any(collision(pose, obstacles, cfg, .055) for pose in zip(p.x,p.y,p.yaw)):
+            valid.append((p, sections))
+    if not valid:
+        return []  # 只搜索 RS 候选，不声称完成任意障碍环境搜索。
+    _, sections = min(valid, key=lambda item: item[0].L + .12 * sum(
+        a*b<0 for a,b in zip(item[0].lengths,item[0].lengths[1:])))
+    return sections
+
+def run_scenario(name, start, goal, obstacles=(), fault=None, cfg=Config(), terminal_direction=None):
+    sections = plan(start,goal,obstacles,cfg,terminal_direction)
     result = dict(name=name, start=start, goal=goal, obstacles=obstacles,
                   config=asdict(cfg), model_status="EXPERIMENTAL：全部尺寸与电机参数为仿真假设",
-                  injected_fault=fault, path=[p.tolist() for p,_ in sections], trace=[])
+                  injected_fault=fault, terminal_direction=terminal_direction,
+                  path_directions=[int(d) for _,d in sections],
+                  path=[p.tolist() for p,_ in sections], trace=[])
     if not sections:
         result.update(status="NO_PATH", position_error_m=None, yaw_error_rad=None, stop_time_s=0)
         return result
@@ -139,4 +156,16 @@ def run_scenario(name, start, goal, obstacles=(), fault=None, cfg=Config()):
                       stop_time_s=result["trace"][-1]["t_s"])
     finally:
         motor.close()
+    return result
+
+
+def run_exit_scenario(name, start, exit_goal, obstacles=(), cfg=Config()):
+    """从停稳位姿重新规划出库实验；不倒放入库路径，不感知真实通路。"""
+    result = run_scenario(name, start, exit_goal, obstacles, cfg=cfg, terminal_direction=1)
+    result["task"] = "EXIT_EXPERIMENT"
+    if result["status"] == "PARKED":
+        result["status"] = "EXITED"
+        for point in result["trace"]:
+            if point["state"] == "PARKED":
+                point["state"] = "EXITED"
     return result

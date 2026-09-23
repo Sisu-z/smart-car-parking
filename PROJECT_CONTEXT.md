@@ -36,7 +36,9 @@ Motor → Encoder → Speed Estimation → PI → Chassis Motion
 - `[HOST-TESTED]` 2026-09-22：7 项 C 测试（含地址/未定义行为检查）、9 项 Python 测试及 7 个泊车/故障场景通过；测试范围及日志见 `results/verification.json`，不是实机验证。
 - `[BUILD-VERIFIED][UNVERIFIED-ON-HARDWARE]` 单电机 Motor A + E1 + UART 候选工程已经完整链接；入口 `firmware/platform/stm32f103_hal/bench_main.c`，默认禁止电机使能，CPR/RPM 上限未填写；没有烧录。
 - `[EXPERIMENTAL]` PythonRobotics 规划 + Pure Pursuit 适配 + 同源 C 速度环参与二维阿克曼仿真；尺寸/电机参数是假设，不等同实物。视觉使用 OpenCV 离线测试，尚未接入真实相机或模拟图像闭环。
-- `[UNVERIFIED]` 普通车位线识别、随机起点主动找位、实车完整倒车入库/出库、跨场地验收尚未完成。现有 AprilTag 工具与固定起点仿真仅为实验回归资产，不计入主线交付；末段倒车约束也尚未加入现有规划器。
+- `[IMPLEMENTED][EXPERIMENTAL]` 2026-09-23：普通 U 形线框候选（OpenCV LSD）、固定相机地面投影、本地图片/录像批处理与数据泄漏检查；仅合成测试，无真实语义/空闲判断。详见 `offline/README.md`。
+- `[HOST-TESTED][SIMULATION-TESTED]` 新增 RS 末段方向筛选、从模拟停稳点重新规划出库及占用目标拒绝；24 个随机起点只检查几何路径，不能当随机自主找位。23 项 Python 回归通过；C 核心保持原样。
+- `[UNVERIFIED]` 实拍普通车位识别、主动找位、完整任务状态机、入口跨越倒车约束、真实倒库/出库和跨场地验收均未完成。候选始终 `valid_for_control=false / occupancy=UNKNOWN`，模拟控制仍输入真值；现有 AprilTag 工具不计主线交付。
 
 ## 架构基线
 
