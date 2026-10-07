@@ -35,6 +35,7 @@
 
 ## 每次交付必须同步
 
+- 用户说“总结”或“复盘”时，默认同时区分两种交付：按 `docs/engineering_logs/README.md` 在 GitHub 写客观的工程日志（事实、状态、变更、验证/未验证、问题、下一步），在聊天发便于复习的个人复盘笔记（感受、踩坑、原因、经验、方法、下次做法）；两者可基于同一事件但不必同文，关键事实须一致。仓库工程日志是该事件的项目记录真源，个人复盘不能作为工程状态依据；用户明确只要一种时遵从其要求。
 - HANDOFF.md 最上方写当前阶段、Changes、Verified、Not Verified、Known Problems、Next Recommended Action，以及分支/基础提交或 PR。
 - 只有状态变化时改 PROJECT_CONTEXT、NEXT_ACTIONS、OPEN_QUESTIONS；目标/接口/单位改变同步 DECISIONS 与相应真源。不改写历史测试为本轮新结果。
 - 测试记录写命令、版本、范围、通过/失败/跳过、硬件是否参与。跳过不算通过，仿真拒绝不计正常泊车成功率。
