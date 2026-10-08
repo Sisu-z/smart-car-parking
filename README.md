@@ -12,7 +12,7 @@ STM32F103C8T6 + RDK X5 的分阶段工程工作台。当前是**硬件审计、�
 
 [项目上下文](PROJECT_CONTEXT.md) ｜ [最新交接](HANDOFF.md) ｜ [硬件事实](01_hardware_source_of_truth.md) ｜ [未决问题](OPEN_QUESTIONS.md) ｜ [Agent 规则](AGENTS.md)
 
-讨论技术目标如何落地、开源复用、关键风险试验或工程卡点时，可调用 [技术工程化落地判断 Skill](.agents/skills/case-driven-engineering/SKILL.md)：`$case-driven-engineering`。它适用于目标已定的实施判断，不只用于选题；案例库是有日期的参考证据，不代表本项目当前状态。本机安装位置 `~/.codex/skills/case-driven-engineering` 指向本仓库同一份文件，后续在仓库修改、验证并提交即可同步维护。
+从大致项目要求筛选细分方向、比较技术路线、验证可行性，再到开源复用与工程落地，可调用 [工程方向判断与落地 Skill](.agents/skills/case-driven-engineering/SKILL.md)：`$case-driven-engineering`。它不预设具体技术方案；案例库是有日期的参考证据，不代表本项目当前状态。本机安装位置 `~/.codex/skills/case-driven-engineering` 指向本仓库同一份文件，后续在仓库修改、验证并提交即可同步维护。
 
 01～11 是专题资料，不是多套项目版本；不要按文件数量判断项目已完成多少。
 

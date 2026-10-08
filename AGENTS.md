@@ -8,7 +8,7 @@
 2. 任务涉及路线读 00_project_master_plan.md 与 DECISIONS.md；涉及代码读 INTERFACE_CONTRACTS.md、CONVENTIONS.md、MODULE_OWNERSHIP.md；读 HANDOFF.md 最新一节。
 3. GitHub main 是已集成基线；分支/PR 是在途工作。事实以 01_hardware_source_of_truth.md 为准，当前开放问题以 OPEN_QUESTIONS.md 为准。
 4. 旧聊天/历史交接不能覆盖最新用户要求和现行决策。发现冲突先指出并修正文档，不维护第二套“最终版/最新版”。
-5. 技术工程化落地、开源复用、关键风险试验与路线讨论可使用 [技术工程化落地判断 Skill](.agents/skills/case-driven-engineering/SKILL.md)；案例库只提供方法证据，不改变本仓库当前目标。
+5. 从大致要求判断细分方向和技术路线、筛查可行性，再到开源复用与工程落地，可使用 [工程方向判断与落地 Skill](.agents/skills/case-driven-engineering/SKILL.md)；案例库只提供方法证据，不改变本仓库当前目标或冻结未定技术方案。
 
 ## 不可擅改的目标与安全边界
 
