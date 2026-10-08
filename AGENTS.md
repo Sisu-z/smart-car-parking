@@ -8,6 +8,7 @@
 2. 任务涉及路线读 00_project_master_plan.md 与 DECISIONS.md；涉及代码读 INTERFACE_CONTRACTS.md、CONVENTIONS.md、MODULE_OWNERSHIP.md；读 HANDOFF.md 最新一节。
 3. GitHub main 是已集成基线；分支/PR 是在途工作。事实以 01_hardware_source_of_truth.md 为准，当前开放问题以 OPEN_QUESTIONS.md 为准。
 4. 旧聊天/历史交接不能覆盖最新用户要求和现行决策。发现冲突先指出并修正文档，不维护第二套“最终版/最新版”。
+5. 工程选题、开源复现与技术路线讨论可使用 [案例驱动 Skill](.agents/skills/case-driven-engineering/SKILL.md)；其中的 2026-10-07 讨论只是历史案例，不改变本仓库当前目标。
 
 ## 不可擅改的目标与安全边界
 
