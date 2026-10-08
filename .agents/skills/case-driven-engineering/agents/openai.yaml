@@ -1,0 +1,6 @@
+interface:
+  display_name: "案例驱动的工程选题与落地"
+  short_description: "从真实作品和工程复盘筛选项目，评估复现差异，形成可验证的实施顺序"
+  default_prompt: "使用 $case-driven-engineering，先比较真实作品与作者复盘，再结合我的条件给出项目取舍和下一项验证。"
+policy:
+  allow_implicit_invocation: true
