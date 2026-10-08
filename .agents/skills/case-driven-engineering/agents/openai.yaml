@@ -1,6 +1,6 @@
 interface:
-  display_name: "案例驱动的工程选题与落地"
-  short_description: "从真实作品和工程复盘筛选项目，评估复现差异，形成可验证的实施顺序"
-  default_prompt: "使用 $case-driven-engineering，先比较真实作品与作者复盘，再结合我的条件给出项目取舍和下一项验证。"
+  display_name: "技术工程化落地判断"
+  short_description: "借鉴已完成工程，判断复用、风险验证、最小闭环与交付路线"
+  default_prompt: "使用 $case-driven-engineering，基于已完成案例和我的实际约束，判断这个技术目标怎样低返工地落地，以及下一项应验证什么。"
 policy:
   allow_implicit_invocation: true
