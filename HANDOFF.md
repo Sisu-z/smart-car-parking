@@ -1,6 +1,36 @@
 # 当前交接记录
 
-## 最新交接：2026-10-08，发布案例驱动工程 Skill
+## 最新交接：2026-10-08，校正技术工程化落地判断 Skill
+
+### Current State
+
+任务分支 `agent/generalize-engineering-skill-20261008`，基础提交 `d550219`。本轮只修正既有 Skill 的适用范围；不改变智能车目标、硬件事实或软件验收状态。
+
+### Changes
+
+- `.agents/skills/case-driven-engineering/SKILL.md`：从“选题为主”改成通用技术落地判断，明确原对话四条经验、目标已定时的使用路径和可复用的最小闭环。
+- `references/decision-sheet.md`：改为工程落地判断卡；案例库删除只适用于旧智能车讨论的情境，保留有出处的工程案例。
+- 更新调用显示名及仓库入口说明；保留 `$case-driven-engineering` 调用名和本机安装链接。
+
+### Verified
+
+- `quick_validate.py` 通过；相对引用目标、本机安装链接和 `git diff --check` 已核对。只验证文档与调用结构，不涉及硬件实测。
+
+### Not Verified
+
+- 尚未在独立实际任务上验证新 Skill 的判断质量；不把格式校验当成行为测试。
+
+### Known Problems
+
+- 既有案例有时效性，具体价格、版本、兼容性必须在使用时复核。
+
+### Next Recommended Action
+
+- 下次遇到真实实施取舍时从目标已定的入口调用，记录它是否正确找出可复用基线和最关键验证，再据实收窄修订。
+
+---
+
+## 历史交接：2026-10-08，发布案例驱动工程 Skill
 
 ### Current State
 
