@@ -9,6 +9,7 @@
 3. GitHub main 是已集成基线；分支/PR 是在途工作。事实以 01_hardware_source_of_truth.md 为准，当前开放问题以 OPEN_QUESTIONS.md 为准。
 4. 旧聊天/历史交接不能覆盖最新用户要求和现行决策。发现冲突先指出并修正文档，不维护第二套“最终版/最新版”。
 5. 从大致要求判断细分方向和技术路线、筛查可行性，再到开源复用与工程落地，可使用 [工程方向判断与落地 Skill](.agents/skills/case-driven-engineering/SKILL.md)；案例库只提供方法证据，不改变本仓库当前目标或冻结未定技术方案。
+6. 项目协作采用 [临时项目团队操作手册 v0.1.0](https://github.com/Sisu-z/project-team-playbook/blob/v0.1.0/START_HERE.md)，见 DEC-018。用户提出目标、关键取舍与现实验收；总监负责转译、任务组织、审查整合与共享记录。角色按任务启用，不设固定 Agent 编制。沿用本仓库等价文件，不重新生成平行的 PROJECT.md／任务台账；本仓库更具体的硬件、安全、接口和公开约束继续有效。
 
 ## 不可擅改的目标与安全边界
 
