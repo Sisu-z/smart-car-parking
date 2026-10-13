@@ -7,7 +7,7 @@ STM32F103C8T6 + RDK X5 的分阶段工程工作台。当前是**硬件审计、�
 ## 只看这三份
 
 - [从这里开始](START_HERE.md)：新成员/Agent 的短入口。
-- [总体方案与第一阶段七个小阶段](00_project_master_plan.md)：唯一总方案。
+- [初代可行性计划书 v0.1](00_project_master_plan.md)：唯一总体计划，含技术链、七阶段、实施工作包和验收/预算安排；先读开头一页结论。
 - [下一步行动](NEXT_ACTIONS.md)：现在最值得做什么。
 
 [项目上下文](PROJECT_CONTEXT.md) ｜ [最新交接](HANDOFF.md) ｜ [硬件事实](01_hardware_source_of_truth.md) ｜ [未决问题](OPEN_QUESTIONS.md) ｜ [Agent 规则](AGENTS.md)
