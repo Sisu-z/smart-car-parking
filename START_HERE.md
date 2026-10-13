@@ -3,10 +3,10 @@
 更新：2026-10-13。日常先读前三份，不必通读全部材料。
 
 1. [项目上下文](PROJECT_CONTEXT.md)：硬件、实现与未验证边界。
-2. [总体方案](00_project_master_plan.md)：第一阶段目标与 M0～M6 验收路线。
+2. [初代可行性计划书 v0.1](00_project_master_plan.md)：开头一页结论，§3技术实现链，§5.4工作包与依赖。
 3. [下一步行动](NEXT_ACTIONS.md)：现在做什么。
 
-本轮进入**初步可行计划书筹备**，由总监组织可见工作聊天，专题入口见 [计划书协作说明](docs/planning/README.md)，正式任务只看 [GitHub Issues](https://github.com/Sisu-z/smart-car-parking/issues)。按固定版团队指南 v0.3.0 工作；先补证据和依赖，不把候选路线写成实物已通过。
+本轮**初代详细计划v0.1已完成技术审查，待用户最终复核**，由总监组织可见工作聊天。专题入口见 [计划书协作说明](docs/planning/README.md)，正式任务只看 [GitHub Issues](https://github.com/Sisu-z/smart-car-parking/issues)。按固定版团队指南v0.3.0工作；计划书完稿和实车通过分别验收。未知硬件参数有对应验证关卡，不要求先测完才交计划。
 
 当前目标：安全区域内随机放置 → 只看普通车位线自主找位 → 倒车入库 → 按指令出库；跨场地展示，禁止运行定位标记和背动作。旧 AprilTag 路线已被 DEC-013 替代。
 
