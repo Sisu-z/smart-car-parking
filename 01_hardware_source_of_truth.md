@@ -3,7 +3,7 @@
 基准日期：2026-09-21
 
 资料根目录：`<HARDWARE_SOURCE_ROOT>`（仓库外只读硬件资料）
-规则：只记录本地资料直接支持的事实；项目口述但资料未支持者标为 `PROJECT-CONTEXT`；没有证据者标为 `UNKNOWN`；不同型号/版本不互相外推。
+规则：优先记录本地资料直接支持的事实；新增官方原文核查注明日期、文件与页/章节，不用网上常识覆盖原资料。项目口述但资料未支持者标为 `PROJECT-CONTEXT`；没有证据者标为 `UNKNOWN`；不同型号/版本不互相外推。
 
 ## 证据状态
 
@@ -41,7 +41,8 @@
 | 电机电源绝对最大值 | VM=15 V max | `VERIFIED-IN-SOURCE`：`6.芯片手册/TB6612FNG芯片手册.pdf`，p.1、p.3 |
 | 推荐工作范围 | VM=2.5-13.5 V；当 VM≥4.5 V 时单通道工作电流上限表列 1.0 A | `VERIFIED-IN-SOURCE`：同数据手册 p.3，Operating Range |
 | 逻辑电源 | VCC=2.7-5.5 V 工作；绝对最大 6 V | `VERIFIED-IN-SOURCE`：同数据手册 p.3 |
-| 输出电流 | 1.2 A/通道连续额定；2 A 为 20 ms、Duty≤20% 连续脉冲条件；3.2 A 为 10 ms 单脉冲峰值 | `VERIFIED-IN-SOURCE`：同数据手册 p.3，Absolute Maximum Ratings |
+| 控制输入高/低阈值 | IN1/IN2/PWM/STBY 的 VIH(min)=0.7×VCC、VIL(max)=0.3×VCC。若实际VCC为5 V，3.3 V输出不能保证满足高阈值；这是假设条件推导，不确认用户实板VCC | `VERIFIED-IN-SOURCE`：2026-10-13 总监直接复核 [Toshiba官方PDF](https://toshiba.semicon-storage.com/info/datasheet_en_20141001.pdf?did=10660)，p.5 Control input voltage / Standby input voltage；相容性推导标为 `DESIGN CHECK` |
+| 输出电流绝对最大口径 | 1.2 A/通道列于绝对最大表，不能作为模块可保证的持续设计电流；2 A 为 20 ms、Duty≤20% 连续脉冲条件；3.2 A 为 10 ms 单脉冲条件。正常工作电流条件见上方 Operating Range；双路与板级散热另核 | `VERIFIED-IN-SOURCE`：同数据手册 p.3，Absolute Maximum Ratings；2026-10-13 总监直接复核 [Toshiba 官方 TB6612FNG PDF](https://toshiba.semicon-storage.com/info/datasheet_en_20141001.pdf?did=10660)，页脚 2026-05-13，p.3/p.6。更正旧“连续额定”措辞，不批准实板负载 |
 | PWM | 最大 100 kHz | `VERIFIED-IN-SOURCE`：同数据手册 p.3 |
 | 工作模式 | 正转、反转、短刹车、停止（高阻）和待机 | `VERIFIED-IN-SOURCE`：同数据手册 p.4，H-SW Control Function |
 | 默认输入状态 | PWMA/PWMB、AIN/BIN 和 STBY 有内部 200 kΩ 下拉；STBY 低为待机 | `VERIFIED-IN-SOURCE`：同数据手册 p.2 |

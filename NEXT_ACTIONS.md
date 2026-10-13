@@ -9,6 +9,7 @@
 - 总监任务 [#10](https://github.com/Sisu-z/smart-car-parking/issues/10)；专业任务：系统/RDK [#11](https://github.com/Sisu-z/smart-car-parking/issues/11)、算法 [#12](https://github.com/Sisu-z/smart-car-parking/issues/12)、机械视野 [#13](https://github.com/Sisu-z/smart-car-parking/issues/13)、电源电路 [#14](https://github.com/Sisu-z/smart-car-parking/issues/14)、底层控制 [#15](https://github.com/Sisu-z/smart-car-parking/issues/15)。本页仅作入口，不复制任务状态。
 - 先审现有资产/完整开源案例，交条件化实现与验证计划。系统和算法可核数据流/替身输入；机械/电气可独立审资料和测量方法。安全供电→实际控制；实测包络/视野→地图与传感冻结；接受上游版本后总监通知下游。
 - 总监整合中央记录，专业窗口只改其授权专题文件并在原Issue/PR交接，详见 [筹备说明](docs/planning/README.md)。不构成本轮烧录／运动／采购授权，也不取消已有获授权的安全调试。
+- 先处理影响下一关的真实差距：当前 `test01` 只固定回中，历史串口/VOFA+ 成功不等于联合工程能力；迁移舵机后需重新核 TIM1 控制时基。供电、运动/停止包络和相机盲区三线并行，先获取最小断电照片/工具条件，不采购整套传感器、不定制地图。各附录与审查意见统一从 `docs/planning/README.md` 和原 Issue 进入。
 
 ## 既有两条技术线（本轮未新增分配）
 

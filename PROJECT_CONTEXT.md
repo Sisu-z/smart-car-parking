@@ -38,10 +38,11 @@ Motor → Encoder → Speed Estimation → PI → Chassis Motion
 
 仓库外的只读 `test01` 学习工程（本机位置在本地配置中登记，不随公共仓库分发）。
 
-- `[IMPLEMENTED]` STM32F103C8T6 运行于 72 MHz；PA6/TIM3_CH1 输出 50 Hz 舵机 PWM；USART1 PA9/PA10 为 115200；支持逐行输入、`S:<pulse_us>` 命令、20 Hz 两字段遥测和主循环舵机缓动。[来源：`test01.ioc:8-27,107-135`；`Core/Src/main.c:49-58,102-158,320-368`]
-- `[TESTED-BY-TEAM]` 团队此前报告 GPIO/PWM/舵机、独立供电与共地、GDB 调参、缓动、UART 中断、CH340 和 VOFA+ 双向控制均已跑通。
-- `[UNVERIFIED-IN-THIS-AUDIT]` 本轮没有执行 ST-LINK 实机连接、电机、编码器或闭环测试。
-- `[DESIGN ISSUE]` `test01` 逻辑集中在 `main.c`；TIM3 的 50 Hz 舵机基频与 D153 参考的 TIM3 CH3/CH4 10 kHz 电机 PWM 冲突。
+- `[IMPLEMENTED]` 2026-10-13 总监与控制窗口分别只读复核：当前 `test01` 为固定回中程序，PA6/TIM3_CH1、50 Hz、1500 μs；USART1 PA9/PA10 初始化为 115200，但没有 `S:` 解析、缓动或遥测，主循环只有延时。[来源：仓库外 `test01/Core/Src/main.c:33,89-112,126-150,171-175,217-226`；PA6 映射见同工程 `test01.ioc:51,128-129`。当前文件不随公开仓库分发。]
+- `[TESTED-BY-TEAM]` 团队此前报告 GPIO/PWM/舵机、独立供电与共地、GDB 调参、缓动、UART 中断、CH340 和 VOFA+ 双向控制跑通过；这些是历史实验报告，不等于当前源码或联合底盘已经具备。联合工程须重新回归。
+- `[UNVERIFIED-IN-THIS-AUDIT]` 本轮没有执行 ST-LINK 实机连接、电机、编码器或闭环测试；当前源码也不证明板上正在运行的固件版本。
+- `[DESIGN ISSUE]` TIM3 的 50 Hz 舵机与 D153 参考的 TIM3 CH3/CH4 10 kHz 电机 PWM 冲突；候选迁到 TIM1/PA8 后，旧模块计划把 TIM1 用作 100 Hz 控制定时器的示例也需替换。资源表与时基须联合核验，不能只改注释。见 [底层计划](docs/planning/firmware_plan.md) §2。
+- `[UNVERIFIED-ON-VEHICLE]` 仓库外 `test02-motion` 是独立双电机短脉冲/PA8 舵机候选，默认硬件门控关闭，无编码器/RPM/PI；其百分比命令不等于公共 v0.1 协议，不计已集成能力。见同计划 §1。
 - `[HOST-TESTED]` 2026-09-22：7 项 C 测试（含地址/未定义行为检查）、9 项 Python 测试及 7 个泊车/故障场景通过；测试范围及日志见 `results/verification.json`，不是实机验证。
 - `[BUILD-VERIFIED][UNVERIFIED-ON-HARDWARE]` 单电机 Motor A + E1 + UART 候选工程已经完整链接；入口 `firmware/platform/stm32f103_hal/bench_main.c`，默认禁止电机使能，CPR/RPM 上限未填写；没有烧录。
 - `[EXPERIMENTAL]` PythonRobotics 规划 + Pure Pursuit 适配 + 同源 C 速度环参与二维阿克曼仿真；尺寸/电机参数是假设，不等同实物。视觉使用 OpenCV 离线测试，尚未接入真实相机或模拟图像闭环。
