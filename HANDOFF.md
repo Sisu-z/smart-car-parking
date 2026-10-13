@@ -4,7 +4,7 @@
 
 ### Current State
 
-总监[#10](https://github.com/Sisu-z/smart-car-parking/issues/10)，基础`3b7a6bb5b946e20a1af731d2e0e45d6aa652f4d0`，分支`agent/feasibility-plan-v01-20261013`。已有五份被接受的专业附录；本轮收口唯一总体计划，当前独立审查中，未代表用户最终接受。
+总监[#10](https://github.com/Sisu-z/smart-car-parking/issues/10)，基础`3b7a6bb5b946e20a1af731d2e0e45d6aa652f4d0`，分支`agent/feasibility-plan-v01-20261013`，[PR #25](https://github.com/Sisu-z/smart-car-parking/pull/25)。本轮初代详细计划v0.1已完成两窗技术复审并由总监接受文稿，待用户最终复核；不是实车验收。
 
 ### Changes
 
@@ -12,7 +12,7 @@
 
 ### Verified
 
-总监核当前GitHub基线、原Issue与五附录入口，按固定指南v0.3.0整合。首稿`172a0ff`的两个现有窗口已在[#26](https://github.com/Sisu-z/smart-car-parking/issues/26)/[#27](https://github.com/Sisu-z/smart-car-parking/issues/27)提交独立审查。依意见修正P4/F5及P5/P6循环依赖、架空单轮不证明整车滑行、双份模块仍需实例化，以及日志缺失不能删除试验分母；补独立监督责任。修订稿待准确版本复审，不把首轮“需修正”写成通过。总监检查8份变更文档47个相对文件链接无缺失（不含锚点/外链完整验证）、diff与公开范围；本轮PR/#10登记结果。
+总监核当前GitHub基线、原Issue与五附录入口，按固定指南v0.3.0整合。首稿`172a0ff`在[#26](https://github.com/Sisu-z/smart-car-parking/issues/26)/[#27](https://github.com/Sisu-z/smart-car-parking/issues/27)独立审查后修正P4/F5及P5/P6循环依赖、架空单轮不证明整车滑行、双份模块仍需实例化，以及日志缺失不能删除试验分母；补独立监督责任。两个窗口已复核`f357905ac3041397530ef8a567876dbcd0ca5c8f`并关闭原问题，接受范围限于详细条件计划/后续派工依据。其后仅由总监补接受状态和链接，未改技术安排。总监检查8份变更文档47个相对文件链接无缺失（不含锚点/外链完整验证）、diff与公开范围；本轮PR/#10登记结果。
 
 ### Not Verified
 
@@ -24,7 +24,7 @@
 
 ### Next Recommended Action
 
-完成定向复核后交用户看00开头一页结论及工作包；总监据接受计划分配P0台架方案、P1/P2测试规格、P3静态采样准备。用户只补现有OPEN_QUESTIONS最小回复包所列电源/版号等容易取得的证据；其他普通技术细节由总监与窗口处理，不要求转发报告。
+用户先看00开头一页结论，需要细节再看§3与§5.4；总监下一批按接受计划分配P0台架方案、P1/P2测试规格、P3静态采样准备，状态仍以新任务为准，本轮未自动启动代码。用户只补现有OPEN_QUESTIONS最小回复包所列电源/版号等容易取得的证据；其他普通技术细节由总监与窗口处理，不要求转发报告。
 
 ---
 
