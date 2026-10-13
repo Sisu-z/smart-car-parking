@@ -1,13 +1,14 @@
 # 下一步行动
 
-更新：2026-10-09（本轮仅调整协作与路线讨论状态，未重新验证下述历史技术待办）。按 [总体方案](00_project_master_plan.md) M0～M6 执行；以下是阶段建议，不代表任务已分配或已完成。可复用的软件见 [offline/README.md](offline/README.md)，先用现有工具，不再重复写线段检测/地面投影/媒体批处理。
+更新：2026-10-13。按 [总体方案](00_project_master_plan.md) M0～M6 筹备初步可行计划书；任务运行状态只看 GitHub Issues。可复用的软件见 [offline/README.md](offline/README.md)，先用现有工具，不再重复写线段检测/地面投影/媒体批处理。下方历史技术待办未经本轮重新实测。
 
-## 本轮优先：总监与用户收敛路线
+## 本轮优先：专业证据与可执行计划
 
 - 普通车位线、随机起点自主找位、倒库／独立出库、跨场地验收仍按 DEC-013～014，不重新讨论已确认目标。
-- 当前先澄清首版场地／车位范围、障碍处理要求、展示期限与可重复测试条件；具体相机组合和算法选择仍须匹配真实证据，不提前冻结。
-- 确认后才把本轮工作拆成有依赖、产物、验收和投入边界的 GitHub Issues。此页作阶段入口，不重复维护任务运行状态；当前没有本轮正式实施分配。
-- 以下两条技术线仍是既有待办；不构成本轮烧录／运动／采购授权，也不取消已有获授权的安全调试。协作方式见 DEC-018 与 MULTI_AGENT_WORKFLOW.md。
+- 已确认日常空间/收纳、首版预算与现有相机/正式供电待定，见 PROJECT_CONTEXT 2026-10-13 补充。循迹与曲线加入基础功能，绕障后置。地图、相机数量、供电和最终接口仍须专业证据与必要用户确认，不提前冻结。
+- 总监任务 [#10](https://github.com/Sisu-z/smart-car-parking/issues/10)；专业任务：系统/RDK [#11](https://github.com/Sisu-z/smart-car-parking/issues/11)、算法 [#12](https://github.com/Sisu-z/smart-car-parking/issues/12)、机械视野 [#13](https://github.com/Sisu-z/smart-car-parking/issues/13)、电源电路 [#14](https://github.com/Sisu-z/smart-car-parking/issues/14)、底层控制 [#15](https://github.com/Sisu-z/smart-car-parking/issues/15)。本页仅作入口，不复制任务状态。
+- 先审现有资产/完整开源案例，交条件化实现与验证计划。系统和算法可核数据流/替身输入；机械/电气可独立审资料和测量方法。安全供电→实际控制；实测包络/视野→地图与传感冻结；接受上游版本后总监通知下游。
+- 总监整合中央记录，专业窗口只改其授权专题文件并在原Issue/PR交接，详见 [筹备说明](docs/planning/README.md)。不构成本轮烧录／运动／采购授权，也不取消已有获授权的安全调试。
 
 ## 既有两条技术线（本轮未新增分配）
 
