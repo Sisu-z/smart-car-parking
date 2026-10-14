@@ -1,8 +1,8 @@
 # 新 Agent / 项目成员从这里开始
 
-更新：2026-10-13。日常先读前三份，不必通读全部材料。
+更新：2026-10-14。日常先读前三份，不必通读全部材料。
 
-当前优先：用户暂缓研发，先完善首次项目展示PPT。六页返工稿的整体视觉已获用户认可，现保留风格增补技术细节与覆盖，不再限制五分钟，由用户现场取舍。当前约定只看[#28](https://github.com/Sisu-z/smart-car-parking/issues/28)及AGENTS的对外展示规则。下方计划/技术待办不自动恢复执行。
+当前优先：围绕年底交付形成[人与Agent执行计划](docs/planning/execution_plan.md)，先看其半页摘要和§2首个2小时信息包。用户可工作日3～4小时、必要时周末每天8小时并安排实验室半天，不排固定日期。当前任务只看[#10](https://github.com/Sisu-z/smart-car-parking/issues/10)；本轮未自动启动研发、采购或设备动作。PPT另按[#28](https://github.com/Sisu-z/smart-car-parking/issues/28)与AGENTS维护，不混成当前研发任务。
 
 1. [项目上下文](PROJECT_CONTEXT.md)：硬件、实现与未验证边界。
 2. [初代可行性计划书 v0.1](00_project_master_plan.md)：开头一页结论，§3技术实现链，§5.4工作包与依赖。
