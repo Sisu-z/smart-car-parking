@@ -1,6 +1,8 @@
 # 新 Agent / 项目成员从这里开始
 
-更新：2026-10-14。日常先读前三份，不必通读全部材料。
+更新：2026-10-19。日常先读前三份，不必通读全部材料。
+
+本轮现行补充：[库存及S20F来源](01_hardware_source_of_truth.md#2026-10-19-库存与资料核验更新)、[近两周补件](NEXT_ACTIONS.md)、[黑底白线20mm视觉规格](docs/planning/track_visual_spec.md)。已回答的型号/耗材/X5配件不要重问；商品图和已有库存不是电气适配或实车验证。
 
 当前优先：围绕年底交付形成[人与Agent执行计划](docs/planning/execution_plan.md)，先看其半页摘要和§2首个2小时信息包。用户可工作日3～4小时、必要时周末每天8小时并安排实验室半天，不排固定日期。当前任务只看[#10](https://github.com/Sisu-z/smart-car-parking/issues/10)；本轮未自动启动研发、采购或设备动作。PPT另按[#28](https://github.com/Sisu-z/smart-car-parking/issues/28)与AGENTS维护，不混成当前研发任务。
 
