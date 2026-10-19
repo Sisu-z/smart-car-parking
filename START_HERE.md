@@ -2,9 +2,9 @@
 
 更新：2026-10-19。日常先读前三份，不必通读全部材料。
 
-本轮现行补充：[库存及S20F来源](01_hardware_source_of_truth.md#2026-10-19-库存与资料核验更新)、[近两周补件](NEXT_ACTIONS.md)、[黑底白线20mm视觉规格](docs/planning/track_visual_spec.md)。已回答的型号/耗材/X5配件不要重问；商品图和已有库存不是电气适配或实车验证。
+本轮现行补充：[库存及S20F来源](01_hardware_source_of_truth.md#2026-10-19-库存与资料核验更新)、[下一步行动与采购状态](NEXT_ACTIONS.md)、[TRACK-V2：黑底白线10mm试验基线](docs/planning/track_visual_spec.md)。已购白色磨砂10mm美纹纸、绝缘胶带和1.2m×3m黑色哑光带背胶卷材；先保留底纸试铺，不重复采购。20mm硬冻结已撤销，最终宽度/几何待实测。
 
-当前优先：围绕年底交付形成[人与Agent执行计划](docs/planning/execution_plan.md)，先看其半页摘要和§2首个2小时信息包。用户可工作日3～4小时、必要时周末每天8小时并安排实验室半天，不排固定日期。当前任务只看[#10](https://github.com/Sisu-z/smart-car-parking/issues/10)；本轮未自动启动研发、采购或设备动作。PPT另按[#28](https://github.com/Sisu-z/smart-car-parking/issues/28)与AGENTS维护，不混成当前研发任务。
+当前优先：从计划转入实施准备与首轮验证，先看[执行附录§0：启动顺序、画板与地图](docs/planning/execution_plan.md#0-现在怎样开始画板和地图放在哪里)及§2现场信息包。当前任务只看[#10](https://github.com/Sisu-z/smart-car-parking/issues/10)；不因启动而放行未审硬件。用户不排固定日期，现场首包约1～2小时，按实际准备缩短。PPT #28独立，不再阻塞研发准备。
 
 1. [项目上下文](PROJECT_CONTEXT.md)：硬件、实现与未验证边界。
 2. [初代可行性计划书 v0.1](00_project_master_plan.md)：开头一页结论，§3技术实现链，§5.4工作包与依赖。
